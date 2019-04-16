@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "fr">
+   <head></head>
+   <body>
+      <h3>
+         <a href = "{{ url_for('show_all') }}">Comments - Flask </a>
+      </h3>
+
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+      <h3>Blocks (<a href = "{{ url_for('new') }}">Ajouter un Block
+         </a>)</h3>
+
+      <table>
+         <thead>
+            <tr>
+               <th>Precede hash</th>
+               <th>Data</th>
+               <th>Date</th>
+               <th>Random</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for block in blocks %}
+               <tr>
+                  <td>{{ block.hash_precedent }}</td>
+                  <td>{{ block.data }}</td>
+                  <td>{{ block.date }}</td>
+                  <td>{{ block.random }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </body>
+</html>

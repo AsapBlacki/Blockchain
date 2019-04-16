@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <h3>Ajout de block</h3>
+      <hr/>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+
+      <form action = "{{ request.path }}" method = "post">
+         <label for = "hashPrecedent">hash précédent</label><br>
+         <input type = "text" name = "hash_precedent" placeholder = "hash_precedent" /><br>
+         <label for = "data">Data</label><br>
+         <input type = "text" name = "data" placeholder = "data" /><br>
+         <label for = "date">Date</label><br>
+         <input type = "text" name = "date" placeholder = "date" /><br>
+         <label for = "random">Random number</label><br>
+         <input type = "text" name = "random" placeholder = "random" /><br>
+         <input type = "submit" value = "Submit" />
+      </form>
+   </body>
+</html>
