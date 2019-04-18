@@ -1,56 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <h3>
-        <♣><♣> Transactions B & B <♣><♣>
-    </h3>
-</head>
-<link href='/static/style.css' rel="stylesheet"/>
-
+<head></head>
 <body>
-<nav>
-    <h3>
+<h3>
+    <nav>
         <li><a href="{{ url_for('portefeuille') }}">Votre portefeuille</a></li>
         <li><a href="{{ url_for('show_all') }}">Liste des blocks</a></li>
         <li><a href="{{ url_for('transactions_all') }}">Liste des transactions</a></li>
         <li><a href="{{ url_for('portefeuilles_all') }}">Liste des portefeuilles</a></li>
-    </h3>
-</nav>
+    </nav>
+</h3>
 
 <hr/>
 {%- for message in get_flashed_messages() %}
 {{ message }}
 {%- endfor %}
 
-<h3>Listes des blocks:</h3>
+<h4>(<a href="{{ url_for('transaction_new') }}">Effectuer un virements
+</a>)</h4>
 
+<h3>Votre portefeuille:</h3>
 <hr>
-
 <table>
     <thead>
     <tr>
         <th>Hash précédent</th>
         <th>Données</th>
         <th>Date</th>
-        <th>Random</th>
     </tr>
     </thead>
 
     <tbody>
-    {% for block in blocks %}
+    {% portefeuille %}
     <tr>
-        <td>{{ block.hash_precedent }}</td>
-        <td>{{ block.data }}</td>
-        <td>{{ block.date }}</td>
-        <td>{{ block.random }}</td>
+        <td>{{ portefeuille.private_key }}</td>
+        <td>{{ portefeuille.public_key }}</td>
+        <td>{{ portefeuille.balance }}</td>
     </tr>
     {% endfor %}
     </tbody>
 </table>
-
-<hr>
-
-<h3>Blocks (<a href="{{ url_for('new') }}">Ajouter un Block
-</a>)</h3>
 </body>
 </html>

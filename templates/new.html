@@ -11,14 +11,14 @@
       {%- endfor %}
 
       <form action = "{{ request.path }}" method = "post">
-         <label for = "hashPrecedent">hash précédent</label><br>
-         <input type = "text" name = "hash_precedent" placeholder = "hash_precedent" /><br>
+         <label for="hash_precedent">hash précédent</label><br>
+         <input id="hash_precedent" name="hash_precedent" placeholder="hash_precedent" type="text"/><br>
          <label for = "data">Data</label><br>
-         <input type = "text" name = "data" placeholder = "data" /><br>
+         <input id="data" name="data" placeholder="data" type="text"/><br>
          <label for = "date">Date</label><br>
-         <input type = "text" name = "date" placeholder = "date" /><br>
+         <input id="date" name="date" placeholder="date" type="text"/><br>
          <label for = "random">Random number</label><br>
-         <input type = "text" name = "random" placeholder = "random" /><br>
+         <input id="random" name="random" placeholder="random" type="text"/><br>
          <input type = "submit" value = "Submit" />
       </form>
    </body>
